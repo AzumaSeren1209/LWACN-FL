@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFLlib</title>
+    <link rel="icon" href="imgs/logo-green.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem 0rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            height: 2rem;
+        }
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .navbar h1 {
+            margin: 0;
+            color: white;
+        }
+        .navbar nav {
+            display: flex;
+            gap: 1rem;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 0rem 1rem;
+        }
+        .navbar a:hover {
+            color: #6DA945;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 8rem auto 2rem; /* Adjusted margin for container */
+            padding: 0 2rem;
+            flex-grow: 1; /* Ensures container takes up remaining space */
+        }
+        h1, h2, h3 {
+            color: #333333;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            width: 100%;
+        }
+        html {
+            scroll-padding-top: 4.5rem; /* Adjust to the height of your navbar */
+        }
+        a {
+            text-decoration: none;
+            color: #6DA945;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: absolute;
+            right: 1rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                flex-direction: column;
+                margin-top: 6rem;
+            }
+            .sidebar, .content {
+                width: 100%;
+            }
+
+            .navbar-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .navbar nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #333333;
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            .navbar nav.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <h1><img src="imgs/logo-green.png" alt="icon" height="36" style="vertical-align: sub; margin-left: 10pt;"/><a href="index.html" id="PFLlib">PFLlib</a></h1>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="docs.html">Documentation</a>
+                <a href="benchmark.html">Benchmark</a>
+                <a href="about.html">About</a>
+                <a href="https://github.com/TsingZ0/PFLlib" id="github-stars" class="github-stars">★ Star 1500</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <section id="about">
+            <h2>About PFLlib</h2>
+            <h3>Mission</h3>
+            <p>We create a <strong><em>beginner-friendly</em> library with a benchmark platform</strong> for those new to federated learning (FL): We built a beginner-friendly FL library and benchmark: <strong>master FL in 2 hours—run it on your PC!</strong>. <a href="https://github.com/TsingZ0/PFLlib/pulls"><strong>Join us</strong></a> in benefiting the FL community by contributing your algorithms, datasets, and metrics to this project.</p>
+            <h3>Value</h3>
+            <p>PFLlib is ideal for companies aiming to explore, select, and evaluate standard/personalized federated learning methods. It enables the evaluation of algorithms and their adaptability to diverse scenarios, offering valuable insights for informed algorithm selection in real-world applications. With its robust features, PFLlib is well-suited for a wide range of industries, from healthcare to finance.</p>
+            <h2>About Me</h2>
+            <p>I am Jianqing Zhang, a PhD student at Shanghai Jiao Tong University and an active contributor to the federated learning community. My research centers on pioneering <strong>personalized and scalable</strong> solutions for <strong>cloud-edge collaboration</strong> and <strong>federated learning</strong>, driving innovation in this transformative field. Explore <a href="https://github.com/TsingZ0"><strong>my homepage</strong></a> for more details about my research and projects.</p>
+            <p><strong>Together</strong>, let's shape the future of federated learning and make it <strong>even greater!</strong></p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 PFLlib. All rights reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        async function fetchGitHubStars() {
+            try {
+                const response = await fetch('https://api.github.com/repos/TsingZ0/PFLlib');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                document.getElementById('github-stars').textContent = `★ Star ${data.stargazers_count}`;
+            } catch (error) {
+                console.error('Failed to fetch GitHub stars:', error);
+                document.getElementById('github-stars').textContent = '★ Star 1500';
+            }
+        }
+        fetchGitHubStars();
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.navbar nav').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar-container')) {
+                document.querySelector('.navbar nav').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
