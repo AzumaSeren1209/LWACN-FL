@@ -5,7 +5,7 @@ This project is based on [PFLlib](https://github.com/TsingZ0/PFLlib), a personal
 We have added new methods in the `system/main.py`, `system/flcore/clients/client_avg_mask.py`, `system/flcore/clients/client_avg_mask_adaptive.py`, `system/flcore/servers/server_avg_mask.py`, `system/flcore/servers/server_avg_mask_adaptive.py`, `system/flcore/compresser/mask_decoder.py`, `system/flcore/compresser/mask_encoder.py` directory to support our extensions for [LWACN].
 We thank the authors for their excellent work.
 ### 📜 Licensing
-We include the original LICENSE from PFLlib. Please refer to `PFLlib_LICENSE.txt`.
+We include the original LICENSE from PFLlib. Please refer to `./PFLlib/LICENSE`.
 ## 🚀 How to Run Our Code
 ### Environments
 Install [CUDA](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html). 
